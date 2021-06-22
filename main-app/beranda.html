@@ -1,0 +1,87 @@
+<div class="cards cards--11" style="text-align: center;">
+    <div class="card card--style-cover card--style-round-corners">
+        <div class="card__gradient"></div>
+        <img src="../ladun/img/logo-sumut.jpg" style="width:100px;">
+        <h2 class="page__title">Selamat Datang di Aplikasi PPDB Sumut 2021</h2>
+
+    </div>
+</div>
+
+
+<h2 class="page__title" style="color:#e74c3c;">Pengumuman Penting !!!</h2>
+<p class="welcome">
+  <b>Pendaftaran PPDB Sumut 2021 diperpanjang sampai tanggal 11 Juni 2021</b><br/>
+  Bagi yang sudah melakukan registrasi & ingin mendownload bukti pendaftaran silahkan kunjungi <br/>
+  https://apps.ppdbsumut.web.id/bukti_pendaftaran/bukti-pendaftaran.php?id='nisn anda(tanpa tanda kutip)', 
+  apabila data pendaftaran kamu tidak valid(jalur tidak muncul, sekolah tujuan tidak muncul), harap melakukan pendaftaran ulang meskipun sudah 
+  melakukan pendaftaran kemarin dan dianggap valid.
+</p>
+<h3>Fitur aplikasi</h3>
+<div class="cards cards--12">
+    <div class="card card--style-icon card--style-round-corners" onclick="pendaftaranAtc()">
+        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/form.svg" alt="" title="" />
+        </div>
+        <h4 class="card__title">Pendaftaran PPDB</h4>
+        <p class="card__text">Isi formulir untuk melakukan pendaftaran ke sekolah</p>
+    </div>
+    <div class="card card--style-icon card--style-round-corners" onclick="caraRegistrasiAtc()">
+        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/listing.svg" alt="" title="" />
+        </div>
+        <h4 class="card__title">Cara Registrasi</h4>
+        <p class="card__text">Panduan pendaftaran untuk mendaftar ke sekolah</p>
+    </div>
+    <div class="card card--style-icon card--style-round-corners" onclick="caraRegistrasiAtc()">
+        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/pencil.svg" alt="" title="" />
+        </div>
+        <h4 class="card__title">Informasi pendaftaran</h4>
+        <p class="card__text">Cek dan pantau info terbaru seputar pelaksanaan PPDB 2021</p>
+    </div>
+    <div class="card card--style-icon card--style-round-corners" onclick="statusPendaftaran()">
+        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/user.svg" alt="" title="" />
+        </div>
+        <h4 class="card__title">Status Pendaftaran</h4>
+        <p class="card__text">Cek status pendaftaran PPDB yang telah kami lakukan</p>
+    </div>
+</div>
+
+<script>
+
+  var username = localStorage.getItem("username");
+  
+  
+function pendaftaranAtc()
+{
+//   window.alert("Pendaftaran belum dapat dilakukan, silahkan tunggu beberapa saat lagi ...");
+  $.post('https://apps.ppdbsumut.web.id/api/cek-registrasi.php', {'username':username}, function(data){
+    let obj = JSON.parse(data);
+    console.log(obj);
+    let status = obj.status;
+    if(status < 1){
+      $("#mainApp").load('registrasi-awal.html');
+    }else{
+      window.alert("Anda telah melakukan registrasi, silahkan tunggu update selanjutnya ...");
+      
+    }
+  });
+}
+  
+  function caraRegistrasiAtc()
+  {
+    window.location.assign("https://ppdb.disdik.sumutprov.go.id/")
+  }
+  
+  function statusPendaftaran()
+  {
+    $.post('https://apps.ppdbsumut.web.id/api/cek-registrasi.php', {'username':username}, function(data){
+    let obj = JSON.parse(data);
+    console.log(obj);
+    let status = obj.status;
+    if(status < 1){
+       window.alert("Anda belum melakukan registrasi ...");
+    }else{
+      window.location.assign("https://apps.ppdbsumut.web.id/bukti_pendaftaran/bukti-pendaftaran.php?id="+username);
+    }
+  });
+  }
+
+</script>

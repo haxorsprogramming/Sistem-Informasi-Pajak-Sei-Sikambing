@@ -1,0 +1,202 @@
+<div class="page__content" style="background-color: #ecf0f1;padding-top: 10px;">
+    <div class="fieldset" style="margin-top:20%">
+        <div id="divProgressRegister" style="text-align:center;margin-bottom:40px;">
+            <lottie-player src="../ladun/lottie_asset/lf20_F7WfWB.json" mode="bounce"
+                background="transparent" speed="1" style="width: 300px; height: 300px;margin:auto;" loop autoplay>
+            </lottie-player>
+            <h3>Sedang melakukan registrasi ...</h3>
+        </div>
+        <div id="divSuccessRegister" style="text-align:center;display:none;margin-bottom:40px;">
+            <lottie-player src="../ladun/lottie_asset/lf20_d6mfskxi.json" mode="bounce"
+                background="transparent" speed="1" style="width: 300px; height: 300px;margin:auto;" loop autoplay>
+            </lottie-player>
+            <h3>Registrasi Berhasil</h3>
+            <div class="splash__buttons">
+                <a href="https://apps.ppdbsumut.web.id/bukti_pendaftaran/bukti-pendaftaran.php?id=1" id="linkDownloadBuktiPendaftaran" class="button button--full button--main">Download bukti
+                    pendaftaran</a>
+                <a href="#!" class="button button--full button--secondary" onclick="kembaliAtc()">Kembali</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var username = localStorage.getItem("username");
+    var url_bukti = "https://apps.ppdbsumut.web.id/bukti_pendaftaran/bukti-pendaftaran.php?id="+username;
+    document.querySelector("#linkDownloadBuktiPendaftaran").setAttribute("href", url_bukti);
+    var sekolah_id = localStorage.getItem("sekolah_id");
+    var jalur_pendaftaran = localStorage.getItem("jalur_pendaftaran");
+    var akreditas_sekolah_asal = localStorage.getItem("akreditasi_sekolah_sebelumnya");
+    var data_kk = localStorage.getItem("data_kk");
+    var lat = localStorage.getItem("lat_g");
+    var long = localStorage.getItem("lng_g");
+    var alamat = localStorage.getItem("alamat_manual");
+    var tanda_tangan = localStorage.getItem("dataTtd");
+    var hp = localStorage.getItem("hp");
+    if(jalur_pendaftaran === '1'){
+        var A_1 = localStorage.getItem("A_1");
+        var A_2 = localStorage.getItem("A_2");
+        let ds = { 
+            'username':username, 
+            'sekolah_id':sekolah_id, 
+            'jalur_pendaftaran':jalur_pendaftaran, 
+            'akreditas_sekolah_asal':akreditas_sekolah_asal,
+            'data_kk' : data_kk,
+            'lat':lat,
+            'long':long,
+            'alamat':alamat,
+            'A_1' : A_1,
+            'A_2' : A_2,
+            'tanda_tangan' : tanda_tangan,
+          'hp':hp
+            }
+        $.post("https://apps.ppdbsumut.web.id/api/proses-pendaftaran.php", ds, function(data){
+            let obj = JSON.parse(data);
+            console.log(obj);
+        });
+    }else if(jalur_pendaftaran === '2'){
+      var B_1 = localStorage.getItem("B_1");
+      var B_2 = localStorage.getItem("B_2");
+      
+        let ds = {
+            'username':username, 
+            'sekolah_id':sekolah_id, 
+            'jalur_pendaftaran':jalur_pendaftaran, 
+            'akreditas_sekolah_asal':akreditas_sekolah_asal,
+            'data_kk' : data_kk,
+            'lat':lat,
+            'long':long,
+            'alamat':alamat,
+            'B_1' : B_1,
+            'B_2' : B_2,
+            'tanda_tangan' : tanda_tangan,
+          'hp':hp
+        }
+        $.post("https://apps.ppdbsumut.web.id/api/proses-pendaftaran.php", ds, function(data){
+            let obj = JSON.parse(data);
+            console.log(obj);
+        });
+    }else if(jalur_pendaftaran === '3'){
+        var st_1_1 = localStorage.getItem("st_1_1");
+        var st_1_2 = localStorage.getItem("st_1_2");
+        var st_1_3 = localStorage.getItem("st_1_3");
+        var st_1_4 = localStorage.getItem("st_1_4");
+        var st_1_5 = localStorage.getItem("st_1_5");
+        var st_1_6 = localStorage.getItem("st_1_6");
+        var st_1_7 = localStorage.getItem("st_1_7");
+        var C_1 = localStorage.getItem("C_1");
+        var st_2_1 = localStorage.getItem("st_2_1");
+        var st_2_2 = localStorage.getItem("st_2_2");
+        var st_2_3 = localStorage.getItem("st_2_3");
+        var st_2_4 = localStorage.getItem("st_2_4");
+        var st_2_5 = localStorage.getItem("st_2_5");
+        var st_2_6 = localStorage.getItem("st_2_6");
+        var st_2_7 = localStorage.getItem("st_2_7");
+        var C_2 = localStorage.getItem("C_2");
+        var st_3_1 = localStorage.getItem("st_3_1");
+        var st_3_2 = localStorage.getItem("st_3_2");
+        var st_3_3 = localStorage.getItem("st_3_3");
+        var st_3_4 = localStorage.getItem("st_3_4");
+        var st_3_5 = localStorage.getItem("st_3_5");
+        var st_3_6 = localStorage.getItem("st_3_6");
+        var st_3_7 = localStorage.getItem("st_3_7");
+        var C_3 = localStorage.getItem("C_3");
+        var st_4_1 = localStorage.getItem("st_4_1");
+        var st_4_2 = localStorage.getItem("st_4_2");
+        var st_4_3 = localStorage.getItem("st_4_3");
+        var st_4_4 = localStorage.getItem("st_4_4");
+        var st_4_5 = localStorage.getItem("st_4_5");
+        var st_4_6 = localStorage.getItem("st_4_6");
+        var st_4_7 = localStorage.getItem("st_4_7");
+        var C_4 = localStorage.getItem("C_4");
+        var st_4_1 = localStorage.getItem("st_4_1");
+        var st_4_2 = localStorage.getItem("st_4_2");
+        var st_4_3 = localStorage.getItem("st_4_3");
+        var st_4_4 = localStorage.getItem("st_4_4");
+        var st_4_5 = localStorage.getItem("st_4_5");
+        var st_4_6 = localStorage.getItem("st_4_6");
+        var st_4_7 = localStorage.getItem("st_4_7");
+        var C_4 = localStorage.getItem("C_4");
+        var st_5_1 = localStorage.getItem("st_5_1");
+        var st_5_2 = localStorage.getItem("st_5_2");
+        var st_5_3 = localStorage.getItem("st_5_3");
+        var st_5_4 = localStorage.getItem("st_5_4");
+        var st_5_5 = localStorage.getItem("st_5_5");
+        var st_5_6 = localStorage.getItem("st_5_6");
+        var st_5_7 = localStorage.getItem("st_5_7");
+        var C_5 = localStorage.getItem("C_5");
+      let ds = {
+            'username':username, 
+            'sekolah_id':sekolah_id, 
+            'jalur_pendaftaran':jalur_pendaftaran, 
+            'akreditas_sekolah_asal':akreditas_sekolah_asal,
+            'data_kk' : data_kk,
+            'lat':lat,
+            'long':long,
+            'alamat':alamat,
+            'tanda_tangan' : tanda_tangan,
+            'st_1_1' : st_1_1, 'st_1_2' : st_1_2, 'st_1_3' : st_1_3, 'st_1_4' : st_1_4, 'st_1_5' : st_1_5, 'st_1_6' : st_1_6, 'st_1_7' : st_1_7, 'C_1' : C_1,
+            'st_2_1' : st_2_1, 'st_2_2' : st_2_2, 'st_2_3' : st_2_3, 'st_2_4' : st_2_4, 'st_2_5' : st_2_5, 'st_2_6' : st_2_6, 'st_2_7' : st_2_7, 'C_2' : C_2,
+            'st_3_1' : st_3_1, 'st_3_2' : st_3_2, 'st_3_3' : st_3_3, 'st_3_4' : st_3_4, 'st_3_5' : st_3_5, 'st_3_6' : st_3_6, 'st_3_7' : st_3_7, 'C_3' : C_3,
+            'st_4_1' : st_4_1, 'st_4_2' : st_4_2, 'st_4_3' : st_4_3, 'st_4_4' : st_4_4, 'st_4_5' : st_4_5, 'st_4_6' : st_4_6, 'st_4_7' : st_4_7, 'C_4' : C_4,
+            'st_5_1' : st_5_1, 'st_5_2' : st_5_2, 'st_5_3' : st_5_3, 'st_5_4' : st_5_4, 'st_5_5' : st_5_5, 'st_5_6' : st_5_6, 'st_5_7' : st_5_7, 'C_5' : C_5,
+        'hp':hp
+        
+        }
+      $.post("https://apps.ppdbsumut.web.id/api/proses-pendaftaran.php", ds, function(data){
+            let obj = JSON.parse(data);
+            console.log(obj);
+        });
+    }else if(jalur_pendaftaran === '4'){
+      var D_1 = localStorage.getItem("D_1");
+      var D_2 = localStorage.getItem("D_2");
+      let ds = {
+            'username':username, 
+            'sekolah_id':sekolah_id, 
+            'jalur_pendaftaran':jalur_pendaftaran, 
+            'akreditas_sekolah_asal':akreditas_sekolah_asal,
+            'data_kk' : data_kk,
+            'lat':lat,
+            'long':long,
+            'alamat':alamat,
+            'D_1' : D_1,
+            'D_2' : D_2,
+            'tanda_tangan' : tanda_tangan,
+            'hp':hp
+      }
+      $.post("https://apps.ppdbsumut.web.id/api/proses-pendaftaran.php", ds, function(data){
+            let obj = JSON.parse(data);
+            console.log(obj);
+        });
+    }else if(jalur_pendaftaran === '5'){
+      var E_1 = localStorage.getItem("E_1");
+        let ds = {
+              'username':username, 
+              'sekolah_id':sekolah_id, 
+              'jalur_pendaftaran':jalur_pendaftaran, 
+              'akreditas_sekolah_asal':akreditas_sekolah_asal,
+              'data_kk' : data_kk,
+              'lat':lat,
+              'long':long,
+              'alamat':alamat,
+              'E_1' : E_1,
+              'tanda_tangan' : tanda_tangan,
+              'hp':hp
+      }
+       $.post("https://apps.ppdbsumut.web.id/api/proses-pendaftaran.php", ds, function(data){
+            let obj = JSON.parse(data);
+            console.log(obj);
+        });
+    }
+
+    setTimeout(function () {
+        $("#divProgressRegister").hide();
+        $("#divSuccessRegister").show();
+    }, 5000);
+
+    function kembaliAtc() {
+        $("#mainApp").load('beranda.html');
+    }
+
+
+</script>
