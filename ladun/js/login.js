@@ -1,6 +1,6 @@
 // route
-var rToLogin = "https://api.haxors.or.id/ppdb/proses-login.php";
-var rToRegister = "https://api.haxors.or.id/ppdb/proses-registrasi.php";
+var rToLogin = server + "api/login-proses.php";
+var rToRegister = server + "api/daftar-proses.php";
 
 // vue object
 var app = new Vue({
@@ -24,25 +24,18 @@ var app = new Vue({
 });
 
 // inisialisasi
-document.querySelector("#txt_nisn").focus();
+document.querySelector("#txt_username").focus();
 
 function login() {
-  let nisn = document.querySelector("#txt_nisn").value;
+  let username = document.querySelector("#txt_username").value;
   let password = document.querySelector("#txt_password").value;
-  let ds = { 'nisn': nisn, 'password': password };
-  if (nisn === "" || password === "") {
+  let ds = { 'username': username, 'password': password };
+  if (username === "" || password === "") {
     ziTo("warning", "Fill field!!!", "Harap lengkapi field yang ada ...");
   } else {
-    $.post(rToLogin, ds, function (data) {
+    $.post(rToLogin, ds, function(data){
       let obj = JSON.parse(data);
-      let status = obj.status_login;
       console.log(obj);
-      if (status === 'success') {
-        localStorage.setItem("username", nisn);
-        window.location.assign("main-app/index.html");
-      } else {
-        ziTo("error", "Invalid login !!!", "Username & password salah ...");
-      }
     });
   }
 }
@@ -56,28 +49,7 @@ function daftarProses() {
   if(nisn === '' || password === ''){
     window.alert("Harap isi data kamu ..");
   }else{
-    $.post(rToRegister, ds, function (data) {
-    let obj = JSON.parse(data);
-    let status = obj.status;
-    console.log(status);
-    if (status === "no_nisn") {
-      ziTo("warning", "Invalid ID", "NIK / NISN tidak terdaftar !!! ");
-      $('#div_status_pendaftaran').show();
-      $('#div_btn_daftar').hide();
-    } else if (status === "nisn_in_use") {
-      ziTo("warning", "ID in use", "NIK / NISN telah di gunakan !!! ");
-      $('#div_status_pendaftaran').show();
-      $('#div_btn_daftar').hide();
-    } else {
-      document.querySelector("#txt_nisn_reg").value = "";
-      document.querySelector("#txt_password_reg").value = "";
-      window.alert("Pendaftaran berhasil, silahkan login dengan akun yg telah dibuat ...");
-      document.querySelector("#txt_nisn").focus();
-      $("#divFormLogin").show();
-      $("#divBtnDaftar").show();
-      $("#divFormDaftar").hide();
-    }
-  });
+    
   } 
   
 }

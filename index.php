@@ -278,18 +278,12 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
     		
 		</div>
 		
-		
-	
 		</div>
 		<div class="buttons buttons--centered mb-20">
 			<a href="#" class="button button--main open-panel" data-panel="right">BROWSE CATEGORIES</a> 
 		</div>
 		  
-		  
 	</div>
-			  
-
-
 
 </div>
 <!-- PAGE END -->

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui">
-	<title>PPDB Sumatera Utara 2021</title>
+	<title>Sifo Pajak Sei Sikambing</title>
 	<link rel="stylesheet" href="ladun/vendor/swiper/swiper.min.css">
 	<link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
 	<link rel="stylesheet" href="ladun/css/style.css">
@@ -23,14 +23,14 @@
 					<div style="text-align: center;">
 						<img src="ladun/img/sumut.png" style="width: 100px;">
 					</div>
-					<h2 class="login__title">PPDB Sumut 2021 </h2>
+					<h2 class="login__title">Sifo Pajak Sei Sikambing</h2>
 					<p class="login__text">Silahkan login ke akun anda</p>
 					<div class="login-form">
 
 						<div id="divFormLogin">
 							<div class="login-form__row">
-								<label class="login-form__label">NISN (Nomor Induk Siswa Nasional)</label>
-								<input type="text" id="txt_nisn" maxlength="10" class="login-form__input required" />
+								<label class="login-form__label">Username</label>
+								<input type="text" id="txt_username" class="login-form__input required" />
 							</div>
 							<div class="login-form__row">
 								<label class="login-form__label">Password</label>
@@ -86,24 +86,11 @@
 	<script src="ladun/vendor/jquery/jquery.validate.min.js"></script>
 	<script src="ladun/vendor/swiper/swiper.min.js"></script>
 	<script src="ladun/js/jquery.custom.js"></script>
+	<script>
+		const server = "http://localhost/sifo-pajak-sei-sikambing/";
+	</script>
 	<script src="ladun/js/login.js"></script>
-  <script>
-    window.alert("Pastikan kamu melakukan clear cache (history) secara menyeluruh pada browser sebelum menggunakan aplikasi ini !!!");
-    window.alert("Harap melakukan pendaftaran ulang meskipun sudah melakukan pendaftaran kemarin dan dianggap valid.");
-  localStorage.clear();
-  </script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ESWMZMSH88"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-	
-    gtag('js', new Date());
-
-    gtag('config', 'G-ESWMZMSH88');
-</script>
+  
 </body>
 
 </html>
