@@ -37,14 +37,8 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 	
 	<!-- PAGE CONTENT -->
 	<div class="page__content page__content--with-header page__content--with-bottom-nav">
-	        <h2 class="featured__title pb-10">Produk apa yang ingin kamu cari?</h2>
-                <div class="search__form">
-			<form>
-				<input type="text" class="search__input" id="" name="" value="" placeholder="CARI PRODUK" />
-				<input type="submit" class="search__submit" value="Send" />
-			</form>		
-		</div>
-			
+	    <h3 class="featured__title pb-10">Selamat datang di aplikasi pajak sei sikambing, kamu dapat menemukan produk produk sehari hari disini.</h3>
+        <br/>
 		<div class="page__title-bar">
 			<h3>Kategori Produk</h3>
 			
@@ -63,7 +57,9 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
                 $nama_kategori = $fKategori['nama_kategori']; 
                 ?>
 				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--3h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners"><a href="javascript:void(0);"><img src="ladun/assets/images/food/burgers.jpg" alt="" title=""/></a></div>
+					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
+                        <a href="javascript:void(0);"><img src="ladun/img/kategori/SAYUR.jpg" alt="" title=""/></a>
+                    </div>
 					<div class="slider-thumbs__caption caption">
 						<div class="caption__content">
 							<h2 class="caption__title caption__title--smaller"><?=$nama_kategori; ?></h2>
@@ -279,111 +275,10 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 			<div class="swiper-pagination slider-thumbs__pagination"></div>
 	
 		</div>
-    		<div class="page__title-bar">
-			<h3>Special Prices</h3>
-			
-			<div class="page__title-right">
-				<div class="swiper-button-prev slider-thumbs__prev"></div>
-				<div class="swiper-button-next slider-thumbs__next"></div>
-			</div>
+    		
 		</div>
 		
-		<!-- SLIDER THUMBS -->
-		<div class="swiper-container slider-thumbs slider-init mb-20" data-paginationtype="progressbar" data-spacebetweenitems="10" data-itemsperview="auto">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/chicken.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__badge"><span>-20%</span></div>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$12 <span>17</span></div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Fried Chicken</h2>
-							<a class="caption__category" href="category.html">STEAKS</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/burgers.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__badge"><span>-20%</span></div>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$10 <span>12</span></div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Beef Burger</h2>
-							<a class="caption__category" href="category.html">BURGERS</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/sushi.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__badge"><span>-15%</span></div>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$18 <span>24</span></div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Sushi Plate</h2>
-							<a class="caption__category" href="category.html">SUSHI</a>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/salad2.jpg" alt="" title=""/></a>
-					        <div class="slider-thumbs__badge"><span>-8%</span></div>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$9 <span>11</span></div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Mixed Salad</h2>
-							<a class="caption__category" href="category.html">SALADS</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/pizza2.jpg" alt="" title=""/></a>
-						 <div class="slider-thumbs__badge"><span>-10%</span></div>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$12 <span>15</span></div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Pizza Margerita</h2>
-							<a class="caption__category" href="category.html">PIZZA</a>
-						</div>
-					</div>
-				</div> 
- 
-			</div>
-			<div class="swiper-pagination slider-thumbs__pagination"></div>
+		
 	
 		</div>
 		<div class="buttons buttons--centered mb-20">
