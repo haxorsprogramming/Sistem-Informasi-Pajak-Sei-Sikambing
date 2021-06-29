@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 include('config/db.php');
 // query ambil data kategori 
 $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
@@ -53,8 +54,8 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 			<div class="swiper-wrapper">
                 <?php while($fKategori = $qKategori -> fetch_assoc()){ ?> 
                 <?php
-                $kd_kategori = $fKategori['kd_kategori'];
-                $nama_kategori = $fKategori['nama_kategori']; 
+                $kd_kategori = $fKategori['kd'];
+                $nama_kategori = $fKategori['nama']; 
                 ?>
 				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--3h">
 					<div class="slider-thumbs__image slider-thumbs__image--round-corners">

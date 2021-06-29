@@ -13,11 +13,8 @@
   <script>
 
     var map, infoWindow;
-
     var alamat_gps = "";
-
     var lat_g, lng_g;
-//     var marker_kita = "";
     
     function initMap() {
         var myLatlng = new google.maps.LatLng(3.5709852559841657, 98.71156731713579);
