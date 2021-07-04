@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="ladun/vendor/swiper/swiper.min.css">
 	<link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
 	<link rel="stylesheet" href="ladun/css/style.css">
-
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
 </head>
 
