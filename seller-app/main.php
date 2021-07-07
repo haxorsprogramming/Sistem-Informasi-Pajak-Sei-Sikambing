@@ -14,6 +14,7 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 <link rel="stylesheet" href="<?=$base_url; ?>ladun/vendor/swiper/swiper.min.css">
 <link rel="stylesheet" href="<?=$base_url; ?>ladun/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> 
+<link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
 </head>
 <body>
 	
@@ -57,11 +58,16 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 <!-- Notifications --> 
 <div id="popup-notifications"></div>  
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?=$base_url; ?>ladun/vendor/jquery/jquery-3.5.1.min.js"></script>
 <script src="<?=$base_url; ?>ladun/vendor/jquery/jquery.validate.min.js" ></script>
 <script src="<?=$base_url; ?>ladun/vendor/swiper/swiper.min.js"></script>
 <script src="<?=$base_url; ?>ladun/js/swiper-init.js"></script>
 <script src="<?=$base_url; ?>ladun/js/jquery.custom.js"></script>
+<script>
+	const server = "<?=$base_url; ?>";
+</script>
 <script src="<?=$base_url; ?>ladun/js/seller.js"></script>
 </body>
 </html>
