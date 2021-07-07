@@ -44,8 +44,8 @@
 
 						<div id="divFormDaftar" style="display: none;">
 							<div class="login-form__row">
-								<label class="login-form__label">NISN (Nomor Induk Siswa Nasional)</label>
-								<input type="text" id="txt_nisn_reg" maxlength="10" class="login-form__input required" />
+								<label class="login-form__label">Username</label>
+								<input type="text" id="txt_username_reg" maxlength="10" class="login-form__input required" />
 							</div>
 							<div class="login-form__row">
 								<label class="login-form__label">Password</label>
@@ -59,8 +59,6 @@
 							</div>
 						</div>
 
-						<div class="login-form__forgot-pass" id="divCapForgotPassword"><a
-								href="http://apps.ppdbsumut.web.id/reset-password/" target="new">Lupa password?</a></div>
 						<div class="login-form__bottom" id="divBtnDaftar">
 							<p>Belum punya akun?</p>
 							<a href="javascript:void(0)" class="button button--secondary button--full"
@@ -86,7 +84,7 @@
 	<script src="ladun/vendor/swiper/swiper.min.js"></script>
 	<script src="ladun/js/jquery.custom.js"></script>
 	<script>
-		const server = "http://localhost/sifo-pajak-sei-sikambing/";
+		const server = "http://localhost/Sistem-Informasi-Pajak-Sei-Sikambing/";
 	</script>
 	<script src="ladun/js/login.js"></script>
   

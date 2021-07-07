@@ -14,8 +14,7 @@ var app = new Vue({
       $("#divFormLogin").hide();
       $("#divBtnDaftar").hide();
       $("#divFormDaftar").show();
-      document.querySelector("#divCapForgotPassword").innerHTML = 'Sudah punya akun? silahkan <a href="auth.html">Login</a>';
-      document.querySelector("#txt_nisn_reg").focus();
+      document.querySelector("#txt_username_reg").focus();
     },
     daftarProsesAtc: function () {
       daftarProses();
@@ -35,21 +34,38 @@ function login() {
   } else {
     $.post(rToLogin, ds, function(data){
       let obj = JSON.parse(data);
-      console.log(obj);
+      let status = obj.status;
+      if(status === 'sukses'){
+        localStorage.setItem("username", username);
+        window.alert("Login berhasil ...");
+        window.location.assign("seller-app/main.php");
+      }else{
+        ziTo("warning", "Error Login!!!", "Username & password salah !!! ...");
+      }
     });
   }
 }
 
 function daftarProses() {
-  let nisn = document.querySelector("#txt_nisn_reg").value;
+  let username = document.querySelector("#txt_username_reg").value;
   let password = document.querySelector("#txt_password_reg").value;
-  let ds = { 'nisn':nisn, 'password':password };
+  let ds = { 'username': username, 'password': password };
   $('#div_status_pendaftaran').hide();
   $('#div_btn_daftar').show();
-  if(nisn === '' || password === ''){
-    window.alert("Harap isi data kamu ..");
+  if(username === '' || password === ''){
+    ziTo("warning", "Fill field!!!", "Harap lengkapi field yang ada ...");
   }else{
-    
+    $.post(rToRegister, ds, function(data){
+      let obj = JSON.parse(data);
+      let status = obj.status;
+      if(status === 'sukses'){
+        
+        window.alert("Registrasi user berhasil, silahkan login ...");
+        window.location.assign("auth.php");
+      }else{
+        ziTo("warning", "User exist!!!", "Username telah digunakan !!! ...");
+      }
+    });
   } 
   
 }
