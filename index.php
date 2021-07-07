@@ -301,6 +301,7 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 <!-- Notifications --> 
 <div id="popup-notifications"></div>  
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="ladun/vendor/jquery/jquery-3.5.1.min.js"></script>
 <script src="ladun/vendor/jquery/jquery.validate.min.js" ></script>
 <script src="ladun/vendor/swiper/swiper.min.js"></script>

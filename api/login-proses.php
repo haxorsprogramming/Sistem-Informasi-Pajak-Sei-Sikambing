@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include("../config/db.php");
 
 class data_r{}
@@ -14,6 +15,7 @@ $tUser = mysqli_num_rows($qLogin);
 if($tUser < 1){
     $dr -> status = 'gagal';
 }else{
+    $_SESSION["username_login"] = $username;
     $dr -> status = 'sukses';
 }
 

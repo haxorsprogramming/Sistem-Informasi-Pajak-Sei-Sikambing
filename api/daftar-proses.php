@@ -14,6 +14,8 @@ $tUser = mysqli_num_rows($qLogin);
 if($tUser < 1){
     // simpan username & password ke database
     $link -> query("INSERT INTO tbl_user(username, password, tipe, aktif) VALUES('$username', '$password', 'seller','y');");
+    // simpan profile seller 
+    $link -> query("INSERT INTO tbl_profil_seller(username, nama_lengkap, nama_toko, alamat, nomor_hp) VALUES('$username', '-', '-', '-','-');");
     $dr -> status = 'sukses'; 
 }else{
     $dr -> status = 'username_ada';

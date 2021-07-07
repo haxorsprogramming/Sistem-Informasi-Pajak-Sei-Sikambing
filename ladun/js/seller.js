@@ -1,0 +1,1 @@
+$("#divUtama").load('beranda.php');

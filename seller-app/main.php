@@ -37,7 +37,7 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 	
 	
 	<!-- PAGE CONTENT -->
-	<div class="page__content page__content--with-header page__content--with-bottom-nav">
+	<div class="page__content page__content--with-header page__content--with-bottom-nav" id="divUtama">
 	    
 		  
 	</div>
@@ -56,11 +56,12 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 
 <!-- Notifications --> 
 <div id="popup-notifications"></div>  
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="<?=$base_url; ?>ladun/vendor/jquery/jquery-3.5.1.min.js"></script>
 <script src="<?=$base_url; ?>ladun/vendor/jquery/jquery.validate.min.js" ></script>
 <script src="<?=$base_url; ?>ladun/vendor/swiper/swiper.min.js"></script>
 <script src="<?=$base_url; ?>ladun/js/swiper-init.js"></script>
 <script src="<?=$base_url; ?>ladun/js/jquery.custom.js"></script>
+<script src="<?=$base_url; ?>ladun/js/seller.js"></script>
 </body>
 </html>
