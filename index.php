@@ -86,7 +86,7 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 			<div class="swiper-wrapper">
 				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
 					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/salad2.jpg" alt="" title=""/></a>
+					<a href="shop-details.html"><img src="ladun/img/kategori/SAYUR.jpg" alt="" title=""/></a>
 						<div class="slider-thumbs__top-right-info">
 							<div class="slider-thumbs__price">$15</div>
 						</div>

@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
 	<div class="page">
 		<div class="page--login" data-page="login" id="app">
 
