@@ -62,7 +62,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
                 ?>
 				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--3h">
 					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-                        <a href="javascript:void(0);"><img src="ladun/img/kategori/SAYUR.jpg" alt="" title=""/></a>
+                        <a href="javascript:void(0);"><img src="ladun/img/kategori/<?=$kd_kategori; ?>.jpg" alt="" title=""/></a>
                     </div>
 					<div class="slider-thumbs__caption caption">
 						<div class="caption__content">
@@ -121,7 +121,9 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 				<?php } ?>
 			</div>
 			<div class="swiper-pagination slider-thumbs__pagination"></div>
-	
+			<div class="buttons buttons--centered mb-20">
+				<a href="javascript:void(0)" class="button button--main">Semua produk terbaru</a>
+			</div>
 		</div>
 		
     		<div class="page__title-bar">
@@ -172,7 +174,9 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 				
 			</div>
 			<div class="swiper-pagination slider-thumbs__pagination"></div>
-	
+			<div class="buttons buttons--centered mb-20">
+				<a href="javascript:void(0)" class="button button--main">Semua produk diskon</a>
+			</div>
 		</div>
     		
 		</div>
