@@ -40,7 +40,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 	
 	
 	<!-- PAGE CONTENT -->
-	<div class="page__content page__content--with-header page__content--with-bottom-nav">
+	<div class="page__content page__content--with-header page__content--with-bottom-nav" id="divKontenBody">
 	    <h3 class="featured__title pb-10">Selamat datang di aplikasi pajak sei sikambing, kamu dapat menemukan produk produk sehari hari disini.</h3>
         <br/>
 		<div class="page__title-bar">
@@ -91,6 +91,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 				<?php while($fProd = $qProdukTerbaru -> fetch_assoc()){ ?> 
 				<?php
 				$idBahan = $fProd['kd_bahan'];
+				$kdProduk = $fProd['kd'];
 				$username_penjual = $fProd['username_penjual'];
 				// cari data bahan 
 				$qBahan = $link -> query("SELECT * FROM tbl_bahan WHERE id='$idBahan' LIMIT 0,1;");
@@ -102,9 +103,9 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 				$fSeller = $qPenjual -> fetch_assoc();
 				$nama_toko = $fSeller['nama_toko'];
 				?> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
+				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h divProdukCap"  id="<?=$kdProduk; ?>">
 					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="<?= $base_url; ?>api/file_upload/produk/<?=$fProd['kd'];?>.jpg" alt="" title=""/></a>
+					<a href="javascript:void(0)"><img src="<?= $base_url; ?>api/file_upload/produk/<?=$fProd['kd'];?>.jpg" alt="" title=""/></a>
 						<div class="slider-thumbs__top-right-info">
 							<div class="slider-thumbs__price">Rp. <?=number_format($fProd['harga']); ?></div>
 						</div>
@@ -143,6 +144,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 			<?php while($fProd = $qProdukDiskon -> fetch_assoc()){ ?> 
 				<?php
 				$idBahan = $fProd['kd_bahan'];
+				$kdProduk = $fProd['kd'];
 				$username_penjual = $fProd['username_penjual'];
 				// cari data bahan 
 				$qBahan = $link -> query("SELECT * FROM tbl_bahan WHERE id='$idBahan' LIMIT 0,1;");
@@ -154,9 +156,9 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 				$fSeller = $qPenjual -> fetch_assoc();
 				$nama_toko = $fSeller['nama_toko'];
 				?> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
+				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h divProdukCap"   id="<?=$kdProduk; ?>">
 					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="<?= $base_url; ?>api/file_upload/produk/<?=$fProd['kd'];?>.jpg" alt="" title=""/></a>
+					<a href="javascript:void(0)"><img src="<?= $base_url; ?>api/file_upload/produk/<?=$fProd['kd'];?>.jpg" alt="" title=""/></a>
 						<div class="slider-thumbs__top-right-info">
 							<div class="slider-thumbs__price">Rp. <?=number_format($fProd['harga']); ?></div>
 						</div>
