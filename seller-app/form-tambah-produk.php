@@ -50,13 +50,17 @@ $qKategori = $link->query("SELECT * FROM tbl_kategori;");
                     <textarea id="txtDeksripsiProduk" class="form__textarea required" placeholder="Deksripsi"></textarea>
                 </div>
                 <div class="form__row">
+                    <label>Harga</label>
+                    <input type="number" id="txtHarga" class="form__input required" placeholder="Harga">
+                </div>
+                <div class="form__row">
                     <label>Stok</label>
                     <input type="number" id="txtStok" class="form__input required" placeholder="Stok">
                 </div>
                 <div class="form__row">
                     <label>Diskon (%) </label><br />
-                    <small style="font-size: 13px;">Kosongkan apabila tidak ada diskon</small>
-                    <input type="number" id="txtDiskon" class="form__input required" placeholder="Diskon" maxlength="3">
+                    <small style="font-size: 13px;">Isi '0' apabila tidak ada diskon</small>
+                    <input type="number" id="txtDiskon" value="0" class="form__input required" placeholder="Diskon" maxlength="3">
                 </div>
                 <div class="form__row">
                     <label>Foto Produk</label><br />
@@ -73,6 +77,7 @@ $qKategori = $link->query("SELECT * FROM tbl_kategori;");
 </div>
 <script>
     var rToGetBahan = server + "api/get-data-bahan.php";
+    var rToProsesTambahProduk = server + "api/proses-tambah-produk.php";
 
     var appProduk = new Vue({
         el: '#divFormTambahProduk',
@@ -88,12 +93,27 @@ $qKategori = $link->query("SELECT * FROM tbl_kategori;");
         let nama = document.querySelector("#txtNamaProduk").value;
         let bahan = document.querySelector("#txtBahan").value;
         let deks = document.querySelector("#txtDeksripsiProduk").value;
+        let harga = document.querySelector("#txtHarga").value;
         let stok = document.querySelector("#txtStok").value;
         let diskon = document.querySelector("#txtDiskon").value;
         let pic = document.querySelector("#previewKk").getAttribute("src");
-        let ds = {'nama':nama, 'bahan':bahan, 'deks':deks, 'stok':stok, 'diskon':diskon, 'pic':pic}
-        console.log(ds);
-        ziTo('success', 'Sukses', 'Berhasil menambahkan produk..');
+        let pic_default = server + "ladun/img/default.jpg";
+        let ds = { 'nama': nama, 'bahan': bahan, 'deks': deks, 'stok': stok, 'harga' : harga, 'diskon': diskon, 'pic': pic }
+        if(nama === '' || bahan === '' || deks === '' || harga === '' || stok === '' || pic === pic_default){
+            ziTo('warning', 'Isi field!!!', 'Harap isi seluruh field !!..');
+        }else{
+            let konfirmasi = window.confirm("Konfirmasi tambahkan produk ..?");
+            if(konfirmasi === true){
+                $.post(rToProsesTambahProduk, ds, function(data){
+                    let obj = JSON.parse(data);
+                    console.log(obj);
+                    ziTo('success', 'Sukses', 'Berhasil menambahkan produk ..?');
+                });
+            }else{
+
+            }
+        }
+        
     }
 
     function getDataBahanAtc() {
@@ -132,35 +152,36 @@ $qKategori = $link->query("SELECT * FROM tbl_kategori;");
     }
 
     function ziTo(tipe, judul, message) {
-    if (tipe === "info") {
-    } else if (tipe === "success") {
-        iziToast.success({
-        title: judul,
-        message: message,
-        position: "bottomCenter",
-        timeout: 1000,
-        pauseOnHover: false,
-        onClosed: function () {},
-        });
-    } else if (tipe === "warning") {
-        iziToast.error({
-        title: judul,
-        message: message,
-        position: "bottomCenter",
-        timeout: 1000,
-        pauseOnHover: false,
-        onClosed: function () {},
-        });
-    } else if (tipe === "error") {
-        iziToast.error({
-        title: judul,
-        message: message,
-        position: "bottomCenter",
-        timeout: 1000,
-        pauseOnHover: false,
-        onClosed: function () {},
-        });
-    }
+        if (tipe === "info") {
+
+        } else if (tipe === "success") {
+            iziToast.success({
+                title: judul,
+                message: message,
+                position: "bottomCenter",
+                timeout: 1000,
+                pauseOnHover: false,
+                onClosed: function() {},
+            });
+        } else if (tipe === "warning") {
+            iziToast.error({
+                title: judul,
+                message: message,
+                position: "bottomCenter",
+                timeout: 1000,
+                pauseOnHover: false,
+                onClosed: function() {},
+            });
+        } else if (tipe === "error") {
+            iziToast.error({
+                title: judul,
+                message: message,
+                position: "bottomCenter",
+                timeout: 1000,
+                pauseOnHover: false,
+                onClosed: function() {},
+            });
+        }
     }
 
     function sleep(ms) {
