@@ -14,8 +14,8 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui">
 <title>Sifo Pajak Sei Sikambing</title>
-<link rel="stylesheet" href="ladun/vendor/swiper/swiper.min.css">
-<link rel="stylesheet" href="ladun/css/style.css">
+<link rel="stylesheet" href="<?=$base_url; ?>ladun/vendor/swiper/swiper.min.css">
+<link rel="stylesheet" href="<?=$base_url; ?>ladun/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> 
 </head>
 <body>
@@ -60,7 +60,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
                 $kd_kategori = $fKategori['kd'];
                 $nama_kategori = $fKategori['nama']; 
                 ?>
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--3h">
+				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--3h divKategori" id="<?=$kd_kategori; ?>">
 					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
                         <a href="javascript:void(0);"><img src="ladun/img/kategori/<?=$kd_kategori; ?>.jpg" alt="" title=""/></a>
                     </div>
@@ -75,6 +75,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 			<div class="swiper-pagination slider-thumbs__pagination"></div>
 	
 		</div>
+		<div id="divKonten">
     		<div class="page__title-bar">
 			<h3>Produk terbaru</h3>
 			
@@ -180,7 +181,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 		</div>
     		
 		</div>
-		
+		</div>
 		</div>
 		<div class="buttons buttons--centered mb-20">
 			<a href="#" class="button button--main open-panel" data-panel="right">BROWSE CATEGORIES</a> 
@@ -204,10 +205,15 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 <div id="popup-notifications"></div>  
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="ladun/vendor/jquery/jquery-3.5.1.min.js"></script>
-<script src="ladun/vendor/jquery/jquery.validate.min.js" ></script>
-<script src="ladun/vendor/swiper/swiper.min.js"></script>
-<script src="ladun/js/swiper-init.js"></script>
-<script src="ladun/js/jquery.custom.js"></script>
+<script src="<?=$base_url; ?>ladun/vendor/jquery/jquery-3.5.1.min.js"></script>
+<script src="<?=$base_url; ?>ladun/vendor/jquery/jquery.validate.min.js" ></script>
+<script src="<?=$base_url; ?>ladun/vendor/swiper/swiper.min.js"></script>
+<script src="<?=$base_url; ?>ladun/js/swiper-init.js"></script>
+<script src="<?=$base_url; ?>ladun/js/jquery.custom.js"></script>
+<script>
+	const server = "http://localhost/Sistem-Informasi-Pajak-Sei-Sikambing/";
+</script>
+<script src="<?=$base_url; ?>ladun/js/home.js"></script>
+
 </body>
 </html>
