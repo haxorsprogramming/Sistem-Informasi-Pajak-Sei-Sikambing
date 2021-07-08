@@ -66,7 +66,7 @@ $qKategori = $link->query("SELECT * FROM tbl_kategori;");
                     <label>Foto Produk</label><br />
                     <img src="<?= $base_url; ?>ladun/img/default.jpg" style="width: 200px;border-radius: 12px;" id="previewKk"><br />
                     <small style="font-size:13px;">Pilih gambar</small>
-                    <input type="file" id="inputFotoKk" onchange="getImg()" class="custom-file-input">
+                    <input type="file" id="inputFotoKk" accept="image/*" onchange="getImg()" class="custom-file-input">
                 </div>
                 <div class="buttons buttons--centered mb-20" style="margin-top:20px">
                     <a href="javascript:void(0)" class="button button--main" onclick="prosesTambahProduk()">Tambah Produk</a>
@@ -108,6 +108,7 @@ $qKategori = $link->query("SELECT * FROM tbl_kategori;");
                     let obj = JSON.parse(data);
                     console.log(obj);
                     ziTo('success', 'Sukses', 'Berhasil menambahkan produk ..?');
+                    $("#divUtama").load('produk-saya.php');
                 });
             }else{
 

@@ -73,7 +73,7 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 	
 		</div>
     		<div class="page__title-bar">
-			<h3>Produk dengan diskon spesial</h3>
+			<h3>Produk terbaru</h3>
 			
 			<div class="page__title-right">
 				<div class="swiper-button-prev slider-thumbs__prev"></div>
