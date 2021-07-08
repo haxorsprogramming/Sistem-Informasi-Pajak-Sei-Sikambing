@@ -43,8 +43,24 @@
 
 						<div id="divFormDaftar" style="display: none;">
 							<div class="login-form__row">
+								<label class="login-form__label">Nama Lengkap</label>
+								<input type="text" id="txt_nama_lengkap" class="login-form__input required" />
+							</div>
+							<div class="login-form__row">
+								<label class="login-form__label">Nama Toko</label>
+								<input type="text" id="txt_nama_toko" class="login-form__input required" />
+							</div>
+							<div class="login-form__row">
+								<label class="login-form__label">Alamat</label>
+								<input type="text" id="txt_alamat"  class="login-form__input required" />
+							</div>
+							<div class="login-form__row">
+								<label class="login-form__label">Nomor Handphone</label>
+								<input type="text" id="txt_hp" class="login-form__input required" />
+							</div>
+							<div class="login-form__row">
 								<label class="login-form__label">Username</label>
-								<input type="text" id="txt_username_reg" maxlength="10" class="login-form__input required" />
+								<input type="text" id="txt_username_reg" class="login-form__input required" />
 							</div>
 							<div class="login-form__row">
 								<label class="login-form__label">Password</label>

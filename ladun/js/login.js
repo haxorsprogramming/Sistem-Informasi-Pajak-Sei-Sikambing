@@ -14,7 +14,7 @@ var app = new Vue({
       $("#divFormLogin").hide();
       $("#divBtnDaftar").hide();
       $("#divFormDaftar").show();
-      document.querySelector("#txt_username_reg").focus();
+      document.querySelector("#txt_nama_lengkap").focus();
     },
     daftarProsesAtc: function () {
       daftarProses();
@@ -26,9 +26,10 @@ var app = new Vue({
 document.querySelector("#txt_username").focus();
 
 function login() {
+  
   let username = document.querySelector("#txt_username").value;
   let password = document.querySelector("#txt_password").value;
-  let ds = { 'username': username, 'password': password };
+  let ds = { 'username': username, 'password': password};
   if (username === "" || password === "") {
     ziTo("warning", "Fill field!!!", "Harap lengkapi field yang ada ...");
   } else {
@@ -47,12 +48,16 @@ function login() {
 }
 
 function daftarProses() {
+  let nama_lengkap = document.querySelector("#txt_nama_lengkap").value;
+  let nama_toko = document.querySelector("#txt_nama_toko").value;
+  let alamat = document.querySelector("#txt_alamat").value;
+  let hp = document.querySelector("#txt_hp").value;
   let username = document.querySelector("#txt_username_reg").value;
   let password = document.querySelector("#txt_password_reg").value;
-  let ds = { 'username': username, 'password': password };
+  let ds = { 'username': username, 'password': password, 'nama_lengkap':nama_lengkap, 'nama_toko':nama_toko, 'alamat':alamat, 'hp':hp  };
   $('#div_status_pendaftaran').hide();
   $('#div_btn_daftar').show();
-  if(username === '' || password === ''){
+  if(username === '' || password === '' || nama_lengkap === '' || nama_toko === '' || alamat === '' || hp === ''){
     ziTo("warning", "Fill field!!!", "Harap lengkapi field yang ada ...");
   }else{
     $.post(rToRegister, ds, function(data){

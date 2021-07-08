@@ -3,7 +3,10 @@ session_start();
 include('config/db.php');
 // query ambil data kategori 
 $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
-
+// query produk terbaru 
+$qProdukTerbaru = $link -> query("SELECT * FROM tbl_produk ORDER BY id DESC LIMIT 0, 10 ;");
+// query produk dengan diskon 
+$qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y' ORDER BY id DESC LIMIT 0, 10");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,11 +87,25 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 		<!-- SLIDER THUMBS -->
 		<div class="swiper-container slider-thumbs slider-init mb-20" data-paginationtype="progressbar" data-spacebetweenitems="10" data-itemsperview="auto">
 			<div class="swiper-wrapper">
+				<?php while($fProd = $qProdukTerbaru -> fetch_assoc()){ ?> 
+				<?php
+				$idBahan = $fProd['kd_bahan'];
+				$username_penjual = $fProd['username_penjual'];
+				// cari data bahan 
+				$qBahan = $link -> query("SELECT * FROM tbl_bahan WHERE id='$idBahan' LIMIT 0,1;");
+				$fBahan = $qBahan -> fetch_assoc();
+				$satuan = $fBahan['satuan'];
+				$namaBahan = $fBahan['nama'];
+				// cari data penjual 
+				$qPenjual = $link -> query("SELECT * FROM tbl_profil_seller WHERE username='$username_penjual' LIMIT 0,1;");
+				$fSeller = $qPenjual -> fetch_assoc();
+				$nama_toko = $fSeller['nama_toko'];
+				?> 
 				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
 					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/img/kategori/SAYUR.jpg" alt="" title=""/></a>
+					<a href="shop-details.html"><img src="<?= $base_url; ?>api/file_upload/produk/<?=$fProd['kd'];?>.jpg" alt="" title=""/></a>
 						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$15</div>
+							<div class="slider-thumbs__price">Rp. <?=number_format($fProd['harga']); ?></div>
 						</div>
 						<div class="slider-thumbs__bottom-right-info">
 							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
@@ -96,87 +113,19 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 					</div>
 					<div class="slider-thumbs__caption caption">
 						<div class="caption__content">
-							<h2 class="caption__title">Mixed Salad</h2>
-							<a class="caption__category" href="category.html">SALADS</a>
+							<h2 class="caption__title"><?=$fProd['nama']; ?></h2><br/><h4><?=$nama_toko; ?></h4>
+							<a class="caption__category" href="#!"><?=$namaBahan; ?></a>
 						</div>
 					</div>
 				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/pizza2.jpg" alt="" title=""/></a>
-						 <div class="slider-thumbs__badge"><span>-10%</span></div>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$12 <span>15</span></div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Pizza Margerita</h2>
-							<a class="caption__category" href="category.html">PIZZA</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/chicken.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$12</div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Fried Chicken</h2>
-							<a class="caption__category" href="category.html">STEAKS</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/burgers.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$10</div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Beef Burger</h2>
-							<a class="caption__category" href="category.html">BURGERS</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/sushi.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$24</div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Sushi Plate</h2>
-							<a class="caption__category" href="category.html">SUSHI</a>
-						</div>
-					</div>
-				</div> 
+				<?php } ?>
 			</div>
 			<div class="swiper-pagination slider-thumbs__pagination"></div>
 	
 		</div>
 		
     		<div class="page__title-bar">
-			<h3>Hot Today</h3>
+			<h3>Produk dengan diskon</h3>
 			
 			<div class="page__title-right">
 				<div class="swiper-button-prev slider-thumbs__prev"></div>
@@ -187,11 +136,26 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 		<!-- SLIDER THUMBS -->
 		<div class="swiper-container slider-thumbs slider-init mb-20" data-paginationtype="progressbar" data-spacebetweenitems="10" data-itemsperview="auto">
 			<div class="swiper-wrapper">
+
+			<?php while($fProd = $qProdukDiskon -> fetch_assoc()){ ?> 
+				<?php
+				$idBahan = $fProd['kd_bahan'];
+				$username_penjual = $fProd['username_penjual'];
+				// cari data bahan 
+				$qBahan = $link -> query("SELECT * FROM tbl_bahan WHERE id='$idBahan' LIMIT 0,1;");
+				$fBahan = $qBahan -> fetch_assoc();
+				$satuan = $fBahan['satuan'];
+				$namaBahan = $fBahan['nama'];
+				// cari data penjual 
+				$qPenjual = $link -> query("SELECT * FROM tbl_profil_seller WHERE username='$username_penjual' LIMIT 0,1;");
+				$fSeller = $qPenjual -> fetch_assoc();
+				$nama_toko = $fSeller['nama_toko'];
+				?> 
 				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
 					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/kebab.jpg" alt="" title=""/></a>
+					<a href="shop-details.html"><img src="<?= $base_url; ?>api/file_upload/produk/<?=$fProd['kd'];?>.jpg" alt="" title=""/></a>
 						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$11</div>
+							<div class="slider-thumbs__price">Rp. <?=number_format($fProd['harga']); ?></div>
 						</div>
 						<div class="slider-thumbs__bottom-right-info">
 							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
@@ -199,79 +163,13 @@ $qKategori = $link -> query("SELECT * FROM tbl_kategori;");
 					</div>
 					<div class="slider-thumbs__caption caption">
 						<div class="caption__content">
-							<h2 class="caption__title">Mixed Kebab</h2>
-							<a class="caption__category" href="category.html">MEAT</a>
+							<h2 class="caption__title"><?=$fProd['nama']; ?></h2><br/><h4><?=$nama_toko; ?></h4>
+							<a class="caption__category" href="#!"><?=$namaBahan; ?></a>
 						</div>
 					</div>
 				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/steak.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$17</div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Beef Steak</h2>
-							<a class="caption__category" href="category.html">STEAK</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/tortillas.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$8</div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Mexican Tortillas</h2>
-							<a class="caption__category" href="category.html">MEXICAN</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/salads.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$10</div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">Mixed Salad</h2>
-							<a class="caption__category" href="category.html">SALADS</a>
-						</div>
-					</div>
-				</div> 
-				<div class="swiper-slide slider-thumbs__slide slider-thumbs__slide--1h">
-					<div class="slider-thumbs__image slider-thumbs__image--round-corners">
-					<a href="shop-details.html"><img src="ladun/assets/images/food/soup.jpg" alt="" title=""/></a>
-						<div class="slider-thumbs__top-right-info">
-							<div class="slider-thumbs__price">$9</div>
-						</div>
-						<div class="slider-thumbs__bottom-right-info">
-							<div class="slider-thumbs__addtocart addtocart"><a href="#"><img src="ladun/assets/images/icons/black/cart.svg" alt="" title=""/></a></div>
-						</div>
-					</div>
-					<div class="slider-thumbs__caption caption">
-						<div class="caption__content">
-							<h2 class="caption__title">House Soup</h2>
-							<a class="caption__category" href="category.html">SOUPS</a>
-						</div>
-					</div>
-				</div> 
+				<?php } ?>
+				
 			</div>
 			<div class="swiper-pagination slider-thumbs__pagination"></div>
 	
