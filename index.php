@@ -178,7 +178,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 			</div>
 			<div class="swiper-pagination slider-thumbs__pagination"></div>
 			<div class="buttons buttons--centered mb-20">
-				<a href="javascript:void(0)" class="button button--main">Semua produk diskon</a>
+				<a href="javascript:void(0)" onclick="semuaProdukDiskonAtc()" class="button button--main">Semua produk diskon</a>
 			</div>
 		</div>
     		

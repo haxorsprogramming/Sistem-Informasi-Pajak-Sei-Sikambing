@@ -2,15 +2,24 @@
 session_start();
 include("config/db.php");
 
+$kategori = $_GET['kat'];
+
 // cari bahan data 
-$qProduk = $link->query("SELECT * FROM tbl_produk ORDER BY id DESC;");
+if($kategori == 'all'){
+    $qProduk = $link->query("SELECT * FROM tbl_produk ORDER BY id DESC;");
+    $cap = "Semua produk kategori terbaru";
+}else{
+    $qProduk = $link->query("SELECT * FROM tbl_produk WHERE status_diskon='y' ORDER BY id DESC;");
+    $cap = "Semua produk kategori diskon";
+}
+
 
 ?>
 
 <div class="page__content page__content">
 
     <div class="page__title-bar">
-        <h3>Semua produk</h3>
+        <h3><?=$cap; ?></h3>
     </div>
     <div class="cards cards--12" id="loadlist-shop">
         <?php while ($fProduk = $qProduk->fetch_assoc()) { ?>

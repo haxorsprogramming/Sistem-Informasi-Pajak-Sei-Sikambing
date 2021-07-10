@@ -11,5 +11,10 @@ $(document).ready(function(){
 
 function semuaProdukTerbaruAtc()
 {
-    $("#divKontenBody").load('semua-produk.php');
+    $("#divKontenBody").load('semua-produk.php?kat=all');
+}
+
+function semuaProdukDiskonAtc()
+{
+    $("#divKontenBody").load('semua-produk.php?kat=diskon');
 }
