@@ -6,6 +6,7 @@
 		  <div class="swiper-slide">
 			<ul class="bottom-navigation__icons">
 			<li><a href="javascript:void(0)" onclick="homeAtc()"><img src="ladun/assets/images/icons/blue/home.svg"/><span>Home</span></a></li>
+			<li><a href="javascript:void(0)" onclick="listTokoAtc()"><img src="ladun/assets/images/icons/blue/search.svg" /><span>List Toko</span></a></li>
 			<li><a href="auth.php"><img src="ladun/assets/images/icons/blue/arrow-right-circle.svg" /><span>Login Penjual</span></a></li>
 			</ul>
 		  </div> 
@@ -18,6 +19,11 @@
 function homeAtc()
 {
 	window.location.assign('index.php');
+}
+
+function listTokoAtc()
+{
+	$("#divKontenBody").load('list-toko.php');
 }
 
 </script>

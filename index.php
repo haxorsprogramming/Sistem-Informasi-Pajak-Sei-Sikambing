@@ -124,7 +124,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 			</div>
 			<div class="swiper-pagination slider-thumbs__pagination"></div>
 			<div class="buttons buttons--centered mb-20">
-				<a href="javascript:void(0)" class="button button--main">Semua produk terbaru</a>
+				<a href="javascript:void(0)" onclick="semuaProdukTerbaruAtc()" class="button button--main">Semua produk terbaru</a>
 			</div>
 		</div>
 		
@@ -213,7 +213,7 @@ $qProdukDiskon = $link -> query("SELECT * FROM tbl_produk WHERE status_diskon='y
 <script src="<?=$base_url; ?>ladun/js/swiper-init.js"></script>
 <script src="<?=$base_url; ?>ladun/js/jquery.custom.js"></script>
 <script>
-	const server = "http://localhost/Sistem-Informasi-Pajak-Sei-Sikambing/";
+	const server = "<?=$base_url; ?>";
 </script>
 <script src="<?=$base_url; ?>ladun/js/home.js"></script>
 

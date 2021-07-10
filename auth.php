@@ -1,13 +1,17 @@
+<?php 
+session_start();
+include('config/db.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
 	<title>Sifo Pajak Sei Sikambing</title>
-	<link rel="stylesheet" href="ladun/vendor/swiper/swiper.min.css">
+	<link rel="stylesheet" href="<?=$base_url; ?>ladun/vendor/swiper/swiper.min.css">
 	<link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
-	<link rel="stylesheet" href="ladun/css/style.css">
+	<link rel="stylesheet" href="<?=$base_url; ?>ladun/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
 </head>
 
@@ -95,13 +99,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
-	<script src="ladun/vendor/jquery/jquery.validate.min.js"></script>
-	<script src="ladun/vendor/swiper/swiper.min.js"></script>
-	<script src="ladun/js/jquery.custom.js"></script>
+	<script src="<?=$base_url; ?>ladun/vendor/jquery/jquery.validate.min.js"></script>
+	<script src="<?=$base_url; ?>ladun/vendor/swiper/swiper.min.js"></script>
+	<script src="<?=$base_url; ?>ladun/js/jquery.custom.js"></script>
 	<script>
-		const server = "http://localhost/Sistem-Informasi-Pajak-Sei-Sikambing/";
+		const server = "<?=$base_url; ?>";
 	</script>
-	<script src="ladun/js/login.js"></script>
+	<script src="<?=$base_url; ?>ladun/js/login.js"></script>
   
 </body>
 

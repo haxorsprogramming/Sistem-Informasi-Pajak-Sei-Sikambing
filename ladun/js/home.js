@@ -8,3 +8,8 @@ $(document).ready(function(){
         $("#divKontenBody").load('detail-produk.php?id='+idProduk);
     });
 });
+
+function semuaProdukTerbaruAtc()
+{
+    $("#divKontenBody").load('semua-produk.php');
+}
