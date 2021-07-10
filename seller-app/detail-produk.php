@@ -46,15 +46,70 @@ $link->query("UPDATE tbl_produk SET dilihat='$updateDilihat' WHERE kd='$idProduk
 <div class="page__title-bar">
     <div class="buttons buttons--centered mb-20">
         <a href="javascript:void(0)" class="button button--main" onclick="tampilFormEditProdukAtc()">Edit Produk</a>
+    <br/>&nbsp;
+        <a href="javascript:void(0)" class="button button--main" onclick="hapusProdukAtc()">Hapus Produk</a>
     </div>
 </div>
 
 </div>
 
 <script>
+
+    var rToHapus = server + "api/proses-hapus-produk.php";
+
     function tampilFormEditProdukAtc()
     {
         let idProduk = "<?=$idProduk; ?>";
         $("#divUtama").load('form-edit-produk.php?idProduk='+idProduk);
     }
+
+    function hapusProdukAtc()
+    {
+        let idProduk = "<?=$idProduk; ?>";
+        let konfirmasi = window.confirm("Yakin menghapus produk?");
+        if(konfirmasi === true){
+            let ds = {'idProduk':idProduk}
+            $.post(rToHapus, ds, function(data){
+                let obj = JSON.parse(data);
+                ziTo('success', 'Sukses', 'Berhasil menghapus produk');
+                $("#divUtama").load('produk-saya.php');
+            });
+        }else{
+
+        }
+    }
+
+    function ziTo(tipe, judul, message) {
+        if (tipe === "info") {
+
+        } else if (tipe === "success") {
+            iziToast.success({
+                title: judul,
+                message: message,
+                position: "bottomCenter",
+                timeout: 1000,
+                pauseOnHover: false,
+                onClosed: function() {},
+            });
+        } else if (tipe === "warning") {
+            iziToast.error({
+                title: judul,
+                message: message,
+                position: "bottomCenter",
+                timeout: 1000,
+                pauseOnHover: false,
+                onClosed: function() {},
+            });
+        } else if (tipe === "error") {
+            iziToast.error({
+                title: judul,
+                message: message,
+                position: "bottomCenter",
+                timeout: 1000,
+                pauseOnHover: false,
+                onClosed: function() {},
+            });
+        }
+    }
+
 </script>
